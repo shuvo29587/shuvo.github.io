@@ -1,0 +1,239 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Container */
+  .container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+  }
+  
+  /* Header */
+  header {
+    background: #003366;
+    padding: 15px 0;
+    color: #fff;
+  }
+  
+  .logo {
+    float: left;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  nav {
+    float: right;
+  }
+  
+  nav ul {
+    list-style: none;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    margin-left: 20px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+  
+  nav ul li a:hover,
+  nav ul li a.active {
+    color: #ffcc00;
+  }
+  
+  /* Clearfix */
+  header::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+  
+  /* Hero Section */
+  .hero {
+    background: url('https://media.istockphoto.com/id/1059510610/vector/it-communication-e-learning-internet-network-as-knowledge-base.jpg?s=612x612&w=0&k=20&c=QEyHx6JnZleLmW9lYgpzvLv765rizr__5zwwKylo300=') no-repeat center center/cover;
+    color: #f8f8f8;
+    padding: 100px 0;
+    text-align: center;
+    box-shadow: inset 0 0 0 1000px rgba(15, 77, 82, 0.5);
+  }
+  
+  .hero h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  .hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  
+  .btn {
+    background: #f1f1f1;
+    color: #003366;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background: #e6b800;
+  }
+  
+  /* Features Section */
+  .features {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 0;
+    text-align: center;
+  }
+  
+  .feature {
+    flex: 1;
+    margin: 0 15px;
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .feature h3 {
+    margin-bottom: 15px;
+    color: #003366;
+  }
+  
+  /* Book Collection */
+  .book-collection h2 {
+    margin: 40px 0 20px;
+    color: #003366;
+    text-align: center;
+  }
+  
+  #searchInput {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  #bookList {
+    list-style: none;
+    max-width: 600px;
+    margin: auto;
+    padding: 0;
+  }
+  
+  #bookList li {
+    background: #f9f9f9;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    border-radius: 5px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    font-weight: 600;
+  }
+  
+  /* Contact Form */
+  .contact-form {
+    max-width: 600px;
+    margin: 40px auto;
+  }
+  
+  .contact-form h2 {
+    color: #003366;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+  
+  .contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  .contact-form button {
+    width: 100%;
+    padding: 15px;
+    background: #003366;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contact-form button:hover {
+    background: #002244;
+  }
+  
+  .form-message {
+    text-align: center;
+    font-weight: 600;
+    color: green;
+    margin-top: 10px;
+  }
+  
+  /* Footer */
+  footer {
+    background: #003366;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .features {
+      flex-direction: column;
+    }
+  
+    .feature {
+      margin: 15px 0;
+    }
+  
+    nav ul li {
+      display: block;
+      margin: 10px 0;
+    }
+  
+    nav {
+      float: none;
+      text-align: center;
+    }
+  
+    .logo {
+      float: none;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+  }
+  

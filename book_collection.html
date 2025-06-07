@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Book Collection - LibraryPro</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: #f4f4f4;
+        }
+
+        header {
+            background-color: #2c3e50;
+            padding: 15px 0;
+            color: white;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav a.active,
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .book-collection h2 {
+            text-align: center;
+            padding: 30px 0 10px;
+        }
+
+        #searchInput {
+            display: block;
+            margin: 0 auto 20px;
+            padding: 10px;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0 0 40px;
+        }
+
+        .book-card {
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        
+            .book-card img {
+                width: 100%; /* পুরো জায়গা নেবে */
+                height: 300px; /* উচ্চতা নির্দিষ্ট */
+                object-fit: contain; /* ছবি সম্পূর্ণ দেখা যাবে */
+                border-radius: 8px; /* সামান্য গোলাকার কোণ */
+                margin: 0 auto 15px;
+                display: block;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* নরম শ্যাডো */
+                background: #f8f8f8; /* ছবির ব্যাকগ্রাউন্ড */
+                padding: 10px; /* ছবির চারপাশে স্পেস */
+                transition: transform 0.3s ease; /* হোভার এনিমেশন */
+            }
+            
+            .book-card:hover img {
+                transform: scale(1.03);
+        }
+
+        .book-title {
+            font-size: 18px;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        .book-author {
+            font-size: 15px;
+            color: #555;
+        }
+
+        .book-price {
+            margin: 8px 0;
+            font-size: 16px;
+            color: green;
+        }
+
+        .add-button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #27ae60;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .add-button:hover {
+            background-color: #1e8449;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">আমাদের পণ্য</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">হোম পেজ</a></li>
+                    <li><a href="book_collection.html" class="active">আমাদের পণ্য</a></li>
+                    <li><a href="contact_us.html">অর্ডার সম্পূর্ণ করুন</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="container book-collection">
+        <h2>📚 আমাদের পণ্য</h2>
+        <input type="text" id="searchInput" placeholder="Search books by title or author..." onkeyup="searchBooks()" />
+
+        <div class="book-grid" id="bookList">
+            <!-- Book 1 -->
+            <div class="book-card" data-product-id="আমি পদ্মজা ">
+                <img src="images/আমি পদ্মজা.jpg " alt="1984" />
+                <div class="book-title">আমি পদ্মজা (হার্ড কভার)</div>
+                <div class="book-author">by ইলমা বেহরোজ</div>
+                <div class="book-price">৳ 460</div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+            <!-- Book 2 -->
+            <div class="book-card" data-product-id="স্পোকেন ইংলিশে জিরো ঠু হিরো">
+                <img src="images/স্পোকেন ইংলিশে জিরো ঠু হিরো.jpg" alt="" />
+                <div class="book-title">স্পোকেন ইংলিশে জিরো ঠু হিরো (পেপারব্যাক)</div>
+                <div class="book-author">by সাইফুর রহমান খান</div>
+                <div class="book-price">৳ 515</div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+            <!-- Book 3 -->
+            <div class="book-card" data-product-id="ঘরে বসে Spoken English">
+                <img src="images/ঘরে বসে Spoken English.jpg" alt="" />
+                <div class="book-title">ঘরে বসে Spoken English(হার্ডকভার)</div>
+                <div class="book-author">by মুনজেরিন শহীদ</div>
+                <div class="book-price">৳ 298</div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+            <!-- Book 4 -->
+            <div class="book-card" data-product-id="পাসপোর্ট টু গ্রামার">
+                <img src="images/পাসপোর্ট টু গ্রামার.jpg" alt="" />
+                <div class="book-title">এক নজরে কুরআন(হার্ডকভার)</div>
+                <div class="book-author">by সাইফুর রহমান খান , মোঃ মুজিবুর রহমান , মোহাম্মাদ রাজ্জব হোসেন , মোঃ হাসীব কবীর</div>
+                <div class="book-price">৳ 315</div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+        <!-- Book 5 -->
+        <div class="book-card" data-product-id="এক নজরে কুরআন">
+            <img src="images/এক নজরে কুরআন.jpg" alt="" />
+            <div class="book-title">এক নজরে কুরআন(হার্ডকভার)</div>
+            <div class="book-author">by ড. মিজানুর রহমান আজহারি</div>
+            <div class="book-price">৳ 1599</div>
+            <button class="add-button">Add to Products</button>
+        </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; My Gmail : mdnaimurrahmanshuvo628@gmail.com</p>
+        </div>
+    </footer>
+
+    <script>
+        // প্রতিটি প্রোডাক্ট আলাদা আলাদা স্টোর এবং কাউন্ট করা
+        document.addEventListener("DOMContentLoaded", function () {
+            const addButtons = document.querySelectorAll(".add-button");
+
+            addButtons.forEach(button => {
+                button.addEventListener("click", function () {
+                    // book-card div থেকে product id নেয়া হচ্ছে
+                    const productCard = button.closest(".book-card");
+                    const productId = productCard.getAttribute("data-product-id");
+
+                    // লোকালস্টোরেজ থেকে প্রোডাক্টের সংখ্যা নেয়া হচ্ছে
+                    let count = parseInt(localStorage.getItem("product_" + productId)) || 0;
+                    count++;
+                    localStorage.setItem("product_" + productId, count);
+
+
+                });
+            });
+        });
+
+        // বই সার্চ করার ফাংশন
+        function searchBooks() {
+            const input = document.getElementById("searchInput").value.toLowerCase();
+            const books = document.querySelectorAll(".book-card");
+
+            books.forEach(book => {
+                const title = book.querySelector(".book-title").textContent.toLowerCase();
+                const author = book.querySelector(".book-author").textContent.toLowerCase();
+
+                if (title.includes(input) || author.includes(input)) {
+                    book.style.display = "block";
+                } else {
+                    book.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
