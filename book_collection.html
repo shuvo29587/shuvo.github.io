@@ -77,26 +77,17 @@
             text-align: center;
         }
 
-
         .book-card img {
             width: 100%;
-            /* পুরো জায়গা নেবে */
             height: 300px;
-            /* উচ্চতা নির্দিষ্ট */
             object-fit: contain;
-            /* ছবি সম্পূর্ণ দেখা যাবে */
             border-radius: 8px;
-            /* সামান্য গোলাকার কোণ */
             margin: 0 auto 15px;
             display: block;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            /* নরম শ্যাডো */
             background: #f8f8f8;
-            /* ছবির ব্যাকগ্রাউন্ড */
             padding: 10px;
-            /* ছবির চারপাশে স্পেস */
             transition: transform 0.3s ease;
-            /* হোভার এনিমেশন */
         }
 
         .book-card:hover img {
@@ -140,6 +131,60 @@
             text-align: center;
             padding: 20px 0;
             margin-top: 40px;
+        }
+
+        /* New styles for order summary */
+        .order-summary {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        .order-summary h3 {
+            margin-top: 0;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .total-amount {
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 15px;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+            min-height: 80px;
+        }
+
+        .checkout-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .checkout-btn:hover {
+            background-color: #2980b9;
         }
     </style>
 </head>
@@ -213,6 +258,734 @@
                 <div class="book-price">৳ 1599</div>
                 <button class="add-button">Add to Products</button>
             </div>
+
+            <!-- Book 6 -->
+            <div class="book-card" data-product-id="Good_Luck_300_Page" data-price="126">
+                <img src="https://ds.rokomari.store/rokomari110/ProductNew20190903/260X372/Good_Luck_Universe_khata_Spiral_300_Page-Good_Luck-8b6fe-255370.jpg"
+                    alt="Good Luck" />
+                <div class="book-title">Good Luck</div>
+                <div class="book-author">300 Page</div>
+                <div class="book-price">৳ 126</div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+            <!-- Book 7 -->
+            <div class="book-card" data-product-id="Good_Luck_200_Page" data-price="90">
+                <img src="https://ds.rokomari.store/rokomari110/ProductNew20190903/260X372/Good_Luck_Universe_Khata_Sprial_160_Page-Good_Luck-abbc1-255398.jpg"
+                    alt="Good Luck" />
+                <div class="book-title">Good Luck</div>
+                <div class="book-author">200 Page</div>
+                <div class="book-price">
+                    <span style="text-decoration: line-through; color: red; opacity: 0.7;">৳120</span>
+                    <span style="font-weight: bold; color: green;">৳90</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+            <!-- Book 8 -->
+            <div class="book-card" data-product-id="Good_Luck_160_Page" data-price="76">
+                <img src="https://ds.rokomari.store/rokomari110/ProductNew20190903/260X372/Good_Luck_Universe_khata_Spiral_200_Page-Good_Luck-051bf-255383.jpg"
+                    alt="Good Luck" />
+                <div class="book-title">Good Luck</div>
+                <div class="book-author">160 Page</div>
+                <div class="book-price">
+                    <span style="text-decoration: line-through; color: red; opacity: 0.7;">৳100</span>
+                    <span style="font-weight: bold; color: green;">৳76</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+            <!-- Book 9 -->
+            <div class="book-card" data-product-id="Good_Luck_120_Page" data-price="60">
+                <img src="https://ds.rokomari.store/rokomari110/ProductNew20190903/260X372/Good_Luck_Universe_Khata_Sprial_160_Page-Good_Luck-693d2-255368.jpeg"
+                    alt="Good Luck" />
+                <div class="book-title">Good Luck</div>
+                <div class="book-author">120 Page</div>
+                <div class="book-price">
+                    <span style="text-decoration: line-through; color: red; opacity: 0.7;">৳80</span>
+                    <span style="font-weight: bold; color: green;">৳60</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+            <!-- Book 10 -->
+            <div class="book-card" data-product-id="GIIIZEN_CT-5S_Calculator" data-price="275">
+                <img src="https://img.drz.lazcdn.com/g/kf/Sc6785b37fee547879a465cd7fd9ba9abu.jpg_720x720q80.jpg"
+                    alt="calculator CT-5S best quality professional Official Calculator" />
+                <div class="book-title">GIIIZEN</div>
+                <div class="book-author">CT-5S</div>
+                <div class="book-price">
+                    <span style="text-decoration: line-through; color: red; opacity: 0.7;">৳450</span>
+                    <span style="font-weight: bold; color: green;">৳275</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+            <!-- Book 11 -->
+            <div class="book-card" data-product-id="CIIIZEN_CT-4S_Calculator" data-price="200">
+                <img src="https://bd-live-21.slatic.net/kf/S663ce6d866914e63958181311bbcd9da3.jpg"
+                    alt="calculator CT-4S best quality professional Calculator" />
+                <div class="book-title">CIIIZEN</div>
+                <div class="book-author">CT-4S</div>
+                <div class="book-price">
+                    <span style="text-decoration: line-through; color: red; opacity: 0.7;">৳400</span>
+                    <span style="font-weight: bold; color: green;">৳200</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+            <!-- Book 12 -->
+            <div class="book-card" data-product-id="Table_Size_Calculator_MJ-120TW" data-price="170">
+                <img src="https://img.drz.lazcdn.com/static/bd/p/f479b4a78e01aafc267f1df3efcf0e6c.jpg_720x720q80.jpg"
+                    alt="MJ-120TW Table Size Calculator" />
+                <div class="book-title">Table Size Calculator</div>
+                <div class="book-author">MJ-120TW</div>
+                <div class="book-price">
+                    <span style="text-decoration: line-through; color: red; opacity: 0.7;">৳400</span>
+                    <span style="font-weight: bold; color: green;">৳170</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+            <!-- Book 13 -->
+            <div class="book-card" data-product-id="12_Digit_Mega_Big_Calculator_MG-9025" data-price="435">
+                <img src="https://eproyojonbd.com/wp-content/uploads/2021/06/466103949e5447017c038832faf7307c.jpg_1200x1200q80.jpg"
+                    alt="Calculator 12 Digit Mega Big" />
+                <div class="book-title">Calculator 12 Digit Mega Big</div>
+                <div class="book-author">MG-9025</div>
+                <div class="book-price">
+                    <span style="text-decoration: line-through; color: red; opacity: 0.7;">৳700</span>
+                    <span style="font-weight: bold; color: green;">৳435</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+            <!-- Book 14 -->
+            <div class="book-card" data-product-id="Big_Size_12-Digits_Calculator_MG-9024" data-price="390">
+                <img src="https://static-01.daraz.com.bd/p/52b6dac48aa7459951655cc82122bc8d.jpg"
+                    alt="Big Size 12-Digits Best Official Desktop Calculator " />
+                <div class="book-title">Big Size 12-Digits Best Official Desktop Calculator</div>
+                <div class="book-author">MG-9024</div>
+                <div class="book-price">
+                    <span style="text-decoration: line-through; color: red; opacity: 0.7;">৳650</span>
+                    <span style="font-weight: bold; color: green;">৳390</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+            <!-- Book 15 -->
+            <div class="book-card" data-product-id="Mega_Electronic_Calculator_CD-120" data-price="330">
+                <img src="https://ds.rokomari.store/rokomari110/ProductNew20190903/260X372/Mega_Electronic_Calculator_12_Digit-MEGA-2205c-277997.png"
+                    alt="Mega Electronic Calculator 12 Digit " />
+                <div class="book-title">Mega Electronic Calculator 12 Digit</div>
+                <div class="book-author">CD-120</div>
+                <div class="book-price">
+                    <span style="text-decoration: line-through; color: red; opacity: 0.7;">৳460</span>
+                    <span style="font-weight: bold; color: green;">৳330</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+            <!-- Book 16 -->
+            <div class="book-card" data-product-id="12_Digits_Mini_Basic_Calculator_CT-112" data-price="170">
+                <img src="https://img.drz.lazcdn.com/g/kf/S09e1c05204434c6687a4abfee8db3b0a1.jpg_720x720q80.jpg"
+                    alt="12 Digits Mini Basic Calculator With Large Display " />
+                <div class="book-title">12 Digits Mini Basic Calculator With Large Display</div>
+                <div class="book-author">CT-112</div>
+                <div class="book-price">
+                    <span style="text-decoration: line-through; color: red; opacity: 0.7;">৳280</span>
+                    <span style="font-weight: bold; color: green;">৳170</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+            <!-- Book 17 -->
+            <div class="book-card" data-product-id="Small_Calculator_for_Students_CT-412C" data-price="170">
+                <img src="https://img.drz.lazcdn.com/static/bd/p/b0d3d7b5e0bae0855981b547289c9c45.jpg_720x720q80.jpg"
+                    alt="Small Calculator for Students " />
+                <div class="book-title">Small Calculator for Students</div>
+                <div class="book-author">CT-412C</div>
+                <div class="book-price">
+                    <span style="text-decoration: line-through; color: red; opacity: 0.7;">৳270</span>
+                    <span style="font-weight: bold; color: green;">৳170</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+            <!-- Book 18 -->
+            <div class="book-card" data-product-id="MS_Calculator_fx-991MS" data-price="230">
+                <img src="https://img.drz.lazcdn.com/static/bd/p/420bdc296c12e28682d0b14020c806ad.jpg_720x720q80.jpg"
+                    alt="MS Calculator" />
+                <div class="book-title">MS Calculator</div>
+                <div class="book-author">fx-991MS</div>
+                <div class="book-price">
+                    <span style="text-decoration: line-through; color: red; opacity: 0.7;">৳390</span>
+                    <span style="font-weight: bold; color: green;">৳230</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+            <!-- Book 19 -->
+            <div class="book-card" data-product-id="Casio_417_F_Scientific_Calculator_FX-991ES_Plus" data-price="405">
+                <img src="https://pencil-house.com/cdn/shop/files/be56d82324c93003dced2f702aae2f3e.jpg_720x720q80.jpg?v=1725486979"
+                    alt="Casio 417 F Scientific Calculator" />
+                <div class="book-title">Casio 417 F Scientific Calculator</div>
+                <div class="book-author">FX-991ES Plus</div>
+                <div class="book-price">
+                    <span style="text-decoration: line-through; color: red; opacity: 0.7;">৳1,450</span>
+                    <span style="font-weight: bold; color: green;">৳405</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+            <!-- Book 20 -->
+            <div class="book-card" data-product-id="Casio_2nd_Edition_Scientific_Calculator_FX-991ES_Plus"
+                data-price="425">
+                <img src="https://finest-time.com/cdn/shop/products/57_6db1c3ef-6acd-406d-bfe3-4acc8f1718e3_597x562.jpg?v=1654595275"
+                    alt="Casio 2nd Edition Scientific Calculator 417 function New" />
+                <div class="book-title">Casio 2nd Edition Scientific Calculator 417 function New</div>
+                <div class="book-author">FX-991ES Plus</div>
+                <div class="book-price">
+                    <span style="text-decoration: line-through; color: red; opacity: 0.7;">৳2,100</span>
+                    <span style="font-weight: bold; color: green;">৳425</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+            <!-- Book 21 -->
+            <div class="book-card" data-product-id="Casio_552_F_Scientific_Calculator_FX-991EX" data-price="595">
+                <img src="https://cmhlprodblobstorage1.blob.core.windows.net/sys-master-cmhlprodblobstorage1/hca/hb1/8977804034078/cmhl_1000000232978_1_hero.jpg_Default-WorkingFormat_1000Wx1000H"
+                    alt="Casio 552 F Scientific Calculator" />
+                <div class="book-title">Casio 552 F Scientific Calculator</div>
+                <div class="book-author">FX-991EX</div>
+                <div class="book-price">
+                    <span style="text-decoration: line-through; color: red; opacity: 0.7;">৳2,100</span>
+                    <span style="font-weight: bold; color: green;">৳595</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+            <!-- Book 22 -->
+            <div class="book-card" data-product-id="12_Digits_Medium_Size_Official_Calculator_SDC-3822C"
+                data-price="280">
+                <img src="https://video.drz.lazcdn.com/vod-4e6588/bfb341a04ff271eebfdc5014c1da0102/snapshots/normal/967426D-18A7FD04E46-1637-5547-817-8203000001.jpg"
+                    alt="12 Digits Medium Size Official Calculator " />
+                <div class="book-title">12 Digits Medium Size Official Calculator</div>
+                <div class="book-author">SDC-3822C</div>
+                <div class="book-price">
+                    <span style="text-decoration: line-through; color: red; opacity: 0.7;">৳480</span>
+                    <span style="font-weight: bold; color: green;">৳280</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+            <!-- Book 23 -->
+            <div class="book-card" data-product-id="Citizen_Calculator_14_Digit_SDC-3614" data-price="315">
+                <img src="https://i.chaldn.com/_mpimage/citizen-calculator-14-digit-sdc-3614-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126761&q=best&v=1"
+                    alt="Citizen Calculator 14 Digit" />
+                <div class="book-title">Citizen Calculator 14 Digit</div>
+                <div class="book-author">SDC-3614</div>
+                <div class="book-price">
+                    <span style="text-decoration: line-through; color: red; opacity: 0.7;">৳440</span>
+                    <span style="font-weight: bold; color: green;">৳ 315</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+            <!-- Book 24 -->
+            <div class="book-card" data-product-id="CITYONE(KC-888)" data-price="85">
+                <img src="https://img.drz.lazcdn.com/static/bd/p/a6a4b15e3078e29a89dd17a72a1f9101.jpg_960x960q80.jpg_.webp"
+                    alt="CITYONE(KC-888)" />
+                <div class="book-title">CITYONE(KC-888)</div>
+                <div class="book-author">KC-888</div>
+                <div class="book-price">
+                    <span style="text-decoration: line-through; color: red; opacity: 0.7;">৳ 150</span>
+                    <span style="font-weight: bold; color: green;">৳ 85</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+            <!-- Book 25 -->
+            <div class="book-card" data-product-id="CITIZEN(CT-3000)" data-price="160">
+                <img src="https://ofuronto.com/wp-content/uploads/2025/03/424991.jpg" alt="CITIZEN(CT-3000)" />
+                <div class="book-title">CITIZEN(CT-3000)</div>
+                <div class="book-author">CT-3000</div>
+                <div class="book-price">
+                    <span style="text-decoration: line-through; color: red; opacity: 0.7;">৳ 250</span>
+                    <span style="font-weight: bold; color: green;">৳ 160</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+            <!-- Book 26 -->
+            <div class="book-card" data-product-id="CITYONE (CT-308)" data-price="165">
+                <img src="https://smartdeal.com.bd/public/uploads/all/fRENLRvHuPVOL4C1HU9s39TjKBwHAtiPhMDOqT1Y.jpg"
+                    alt="CITYONE (CT-308)" />
+                <div class="book-title">CITYONE (CT-308)</div>
+                <div class="book-author">CT-308</div>
+                <div class="book-price">
+                    <span style="text-decoration: line-through; color: red; opacity: 0.7;">৳ 250</span>
+                    <span style="font-weight: bold; color: green;">৳ 165</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+            <!-- Book 27 -->
+            <div class="book-card" data-product-id="Citiplus 12-Digits Small Size Calculator(CT-720Li)"
+                data-price="165">
+                <img src="https://img.drz.lazcdn.com/3rd/q/aHR0cHM6Ly9pbWcxLndzaW1nLmNvbS9pc3RlYW0vaXAvOWRhMDg5OWUtZDE0ZC00NTZjLWE0YjQtNGY0NDQxYWUxZWYxL0NULTcyMExpJUU4JUFGJUE2JUU2JTgzJTg1JUU1JTlCJUJFXzAyLmpwZy86L2NyPXQ6MCUyNSxsOjEuNzglMjUsdzo5Ni40NSUyNSxoOjk2LjQ1JTI1_960x960q80.png_.webp"
+                    alt="Citiplus 12-Digits Small Size Calculator(CT-720Li)" />
+                <div class="book-title">Citiplus 12-Digits Small Size Calculator</div>
+                <div class="book-author">CT-720Li</div>
+                <div class="book-price">
+                    <span style="text-decoration: line-through; color: red; opacity: 0.7;">৳ 250</span>
+                    <span style="font-weight: bold; color: green;">৳ 165</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+            <!-- Book 28 -->
+            <div class="book-card" data-product-id="রেজিস্টার বই (১৬.নং)" data-price="310">
+                <img src="https://static-01.daraz.com.bd/p/cb726a3f4d35aa68f727e8b330dc3b0d.jpg"
+                    alt="রেজিস্টার বই (১৬.নং)" />
+                <div class="book-title">রেজিস্টার বই (১৬.নং)</div>
+                <div class="book-author">১ ডজন</div>
+                <div class="book-price">
+                    <span style="font-weight: bold; color: green;">৳ 310</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+            <!-- Book 29 -->
+            <div class="book-card" data-product-id="রেজিস্টার বই (20.নং)" data-price="370">
+                <img src="https://static-01.daraz.com.bd/p/cb726a3f4d35aa68f727e8b330dc3b0d.jpg"
+                    alt="রেজিস্টার বই (20.নং)" />
+                <div class="book-title">রেজিস্টার বই (20.নং)</div>
+                <div class="book-author">১ ডজন</div>
+                <div class="book-price">
+                    <span style="font-weight: bold; color: green;">৳ 370</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+            <!-- Book 30 -->
+            <div class="book-card" data-product-id="রেজিস্টার বই (২৪.নং)" data-price="390">
+                <img src="https://static-01.daraz.com.bd/p/cb726a3f4d35aa68f727e8b330dc3b0d.jpg"
+                    alt="রেজিস্টার বই (২৪.নং)" />
+                <div class="book-title">রেজিস্টার বই (২৪.নং)</div>
+                <div class="book-author">১ ডজন</div>
+                <div class="book-price">
+                    <span style="font-weight: bold; color: green;">৳ 390</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+            <!-- Book 31 -->
+            <div class="book-card" data-product-id="রেজিস্টার বই (৩০.নং)" data-price="450">
+                <img src="https://static-01.daraz.com.bd/p/cb726a3f4d35aa68f727e8b330dc3b0d.jpg"
+                    alt="রেজিস্টার বই (৩০.নং)" />
+                <div class="book-title">রেজিস্টার বই (৩০.নং)</div>
+                <div class="book-author">১ ডজন</div>
+                <div class="book-price">
+                    <span style="font-weight: bold; color: green;">৳ 450</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+            
+
+            <!-- Book 33 -->
+            <div class="book-card" data-product-id="রেজিস্টার বই (৬০.নং)" data-price="760">
+                <img src="https://static-01.daraz.com.bd/p/cb726a3f4d35aa68f727e8b330dc3b0d.jpg"
+                    alt="রেজিস্টার বই (৬০.নং)" />
+                <div class="book-title">রেজিস্টার বই (৬০.নং)</div>
+                <div class="book-author">১ ডজন</div>
+                <div class="book-price">
+                    <span style="font-weight: bold; color: green;">৳ 760</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+
+            <!-- Book 32 -->
+            <div class="book-card" data-product-id="রেজিস্টার বই (৪০.নং)" data-price="540">
+                <img src="https://static-01.daraz.com.bd/p/cb726a3f4d35aa68f727e8b330dc3b0d.jpg" alt="রেজিস্টার বই (৪০.নং)" />
+                <div class="book-title">রেজিস্টার বই (৪০.নং)</div>
+                <div class="book-author">১ ডজন</div>
+                <div class="book-price">
+                    <span style="font-weight: bold; color: green;">৳ 540</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+<!-- Book 34 -->
+<div class="book-card" data-product-id="রেজিস্টার বই (৮০.নং)" data-price="950">
+    <img src="https://static-01.daraz.com.bd/p/cb726a3f4d35aa68f727e8b330dc3b0d.jpg" alt="রেজিস্টার বই (৮০.নং)" />
+    <div class="book-title">রেজিস্টার বই (৮০.নং)</div>
+    <div class="book-author">১ ডজন</div>
+    <div class="book-price">
+        <span style="font-weight: bold; color: green;">৳ 950</span>
+    </div>
+    <button class="add-button">Add to Products</button>
+</div>
+
+
+            <!-- Book 25 -->
+            <div class="book-card" data-product-id="চিকুন টালী খাতা(১০.নং)" data-price="240">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkdlVZF8d6z5fAxcdGjsuG9v0Xsumh-cKzQw&s" alt="CITIZEN(CT-3000)" />
+                <div class="book-title">চিকুন টালী খাতা(১০.নং)</div>
+                <div class="book-author">১ ডজন</div>
+                <div class="book-price">
+                    
+                    <span style="font-weight: bold; color: green;">৳ 240</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+            <!-- Book 36 -->
+            <div class="book-card" data-product-id="চিকুন টালী খাতা(২০.নং)" data-price="370">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkdlVZF8d6z5fAxcdGjsuG9v0Xsumh-cKzQw&s"
+                    alt="চিকুন টালী খাতা(২০.নং)" />
+                <div class="book-title">চিকুন টালী খাতা(২০.নং)</div>
+                <div class="book-author">১ ডজন</div>
+                <div class="book-price">
+                    <span style="font-weight: bold; color: green;">৳ 370</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+
+
+            <!-- Book 37 -->
+            <div class="book-card" data-product-id="চিকুন টালী খাতা(৩০.নং)" data-price="450">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkdlVZF8d6z5fAxcdGjsuG9v0Xsumh-cKzQw&s"
+                    alt="চিকুন টালী খাতা(৩০.নং)" />
+                <div class="book-title">চিকুন টালী খাতা(৩০.নং)</div>
+                <div class="book-author">১ ডজন</div>
+                <div class="book-price">
+                    <span style="font-weight: bold; color: green;">৳ 450</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+
+
+            <!-- Book 40 -->
+            <div class="book-card" data-product-id="চিকুন টালী খাতা(৪০.নং)" data-price="540">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkdlVZF8d6z5fAxcdGjsuG9v0Xsumh-cKzQw&s"
+                    alt="চিকুন টালী খাতা(৪০.নং)" />
+                <div class="book-title">চিকুন টালী খাতা(৪০.নং)</div>
+                <div class="book-author">১ ডজন</div>
+                <div class="book-price">
+                    <span style="font-weight: bold; color: green;">৳ 540</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+
+
+
+            <!-- Book 41 -->
+            <div class="book-card" data-product-id="চিকুন টালী খাতা(৬০.নং)" data-price="760">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkdlVZF8d6z5fAxcdGjsuG9v0Xsumh-cKzQw&s"
+                    alt="চিকুন টালী খাতা(৬০.নং)" />
+                <div class="book-title">চিকুন টালী খাতা(৬০.নং)</div>
+                <div class="book-author">১ ডজন</div>
+                <div class="book-price">
+                    <span style="font-weight: bold; color: green;">৳ 760</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+
+
+            <!-- Book 42 -->
+            <div class="book-card" data-product-id="চিকুন টালী খাতা(৮০.নং)" data-price="950">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkdlVZF8d6z5fAxcdGjsuG9v0Xsumh-cKzQw&s"
+                    alt="চিকুন টালী খাতা(৮০.নং)" />
+                <div class="book-title">চিকুন টালী খাতা(৮০.নং)</div>
+                <div class="book-author">১ ডজন</div>
+                <div class="book-price">
+                    <span style="font-weight: bold; color: green;">৳ 950</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+
+            <!-- Book 43 -->
+            <div class="book-card" data-product-id="সুপার রেজিস্টার(200 পেজ)" data-price="85">
+                <img src="https://m2ce.sindabad.com/pub/media/catalog/product/_/0/_0009_sopn03000140cac_1.jpg"
+                    alt="সুপার রেজিস্টার(200 পেজ)" />
+                <div class="book-title">সুপার রেজিস্টার</div>
+                <div class="book-author">200 পেজ</div>
+                <div class="book-price">
+                    <span style="font-weight: bold; color: green;">৳ 85</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+
+
+
+
+            <!-- Book 43 -->
+            <div class="book-card" data-product-id="সুপার রেজিস্টার(300 পেজ)" data-price="126">
+                <img src="https://m2ce.sindabad.com/pub/media/catalog/product/_/0/_0009_sopn03000140cac_1.jpg"
+                    alt="সুপার রেজিস্টার(300 পেজ)" />
+                <div class="book-title">সুপার রেজিস্টার</div>
+                <div class="book-author">300 পেজ</div>
+                <div class="book-price">
+                    <span style="font-weight: bold; color: green;">৳ 126</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+
+
+
+            <!-- Book 44 -->
+            <div class="book-card" data-product-id="সুপার রেজিস্টার(400 পেজ)" data-price="160">
+                <img src="https://m2ce.sindabad.com/pub/media/catalog/product/_/0/_0009_sopn03000140cac_1.jpg"
+                    alt="সুপার রেজিস্টার(400 পেজ)" />
+                <div class="book-title">সুপার রেজিস্টার</div>
+                <div class="book-author">400 পেজ</div>
+                <div class="book-price">
+                    <span style="font-weight: bold; color: green;">৳ 160</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+            </div>
+
+
+
+<!-- Book 45 -->
+<div class="book-card" data-product-id="সুপার রেজিস্টার(500 পেজ)" data-price="200">
+    <img src="https://m2ce.sindabad.com/pub/media/catalog/product/_/0/_0009_sopn03000140cac_1.jpg"
+        alt="সুপার রেজিস্টার(500 পেজ)" />
+    <div class="book-title">সুপার রেজিস্টার</div>
+    <div class="book-author">500 পেজ</div>
+    <div class="book-price">
+        <span style="font-weight: bold; color: green;">৳ 200</span>
+    </div>
+    <button class="add-button">Add to Products</button>
+</div>
+
+
+
+        <!-- Book 46 -->
+        <div class="book-card" data-product-id="সুপার রেজিস্টার(600 পেজ)" data-price="240">
+            <img src="https://m2ce.sindabad.com/pub/media/catalog/product/_/0/_0009_sopn03000140cac_1.jpg"
+                alt="সুপার রেজিস্টার(600 পেজ)" />
+            <div class="book-title">সুপার রেজিস্টার</div>
+            <div class="book-author">600 পেজ</div>
+            <div class="book-price">
+                <span style="font-weight: bold; color: green;">৳ 240</span>
+            </div>
+            <button class="add-button">Add to Products</button>
+        </div>
+
+        <!-- Book 46 -->
+        <div class="book-card" data-product-id="সুপার রেজিস্টার(800 পেজ)" data-price="320">
+            <img src="https://m2ce.sindabad.com/pub/media/catalog/product/_/0/_0009_sopn03000140cac_1.jpg"
+                alt="সুপার রেজিস্টার(800 পেজ)" />
+            <div class="book-title">সুপার রেজিস্টার</div>
+            <div class="book-author">800 পেজ</div>
+            <div class="book-price">
+                <span style="font-weight: bold; color: green;">৳ 320</span>
+            </div>
+            <button class="add-button">Add to Products</button>
+        </div>
+
+
+
+        <!-- Book 46 -->
+        <div class="book-card" data-product-id="সুপার রেজিস্টার(1000 পেজ)" data-price="400">
+            <img src="https://m2ce.sindabad.com/pub/media/catalog/product/_/0/_0009_sopn03000140cac_1.jpg"
+                alt="সুপার রেজিস্টার(1000 পেজ)" />
+            <div class="book-title">সুপার রেজিস্টার</div>
+            <div class="book-author">1000 পেজ</div>
+            <div class="book-price">
+                <span style="font-weight: bold; color: green;">৳ 400</span>
+            </div>
+            <button class="add-button">Add to Products</button>
+        </div>
+
+
+        <!-- Book 46 -->
+        <div class="book-card" data-product-id="লাল টালী(৪ নাম্বার) " data-price="92">
+            <img src="https://teachers.gov.bd/shared/contents/2019/April/12/photo/halkhata-1420-online-dhaka-guide.jpg"
+                alt="লাল টালী(৪ নাম্বার)" />
+            <div class="book-title">লাল টালী</div>
+            <div class="book-author">৪ নাম্বার</div>
+            <div class="book-price">
+                <span style="font-weight: bold; color: green;">৳ 92</span>
+            </div>
+            <button class="add-button">Add to Products</button>
+        </div>
+
+
+
+            <!-- Book 46 -->
+            <div class="book-card" data-product-id="লাল টালী(৬ নাম্বার) " data-price="138">
+                <img src="https://teachers.gov.bd/shared/contents/2019/April/12/photo/halkhata-1420-online-dhaka-guide.jpg"
+                    alt="লাল টালী(৬ নাম্বার)" />
+                <div class="book-title">লাল টালী</div>
+                <div class="book-author">৬ নাম্বার</div>
+                <div class="book-price">
+                    <span style="font-weight: bold; color: green;">৳ 138</span>
+                </div>
+                <button class="add-button">Add to Products</button>
+                </div>
+
+
+                <!-- Book 46 -->
+                <div class="book-card" data-product-id="লাল টালী(৮ নাম্বার) " data-price="184">
+                    <img src="https://teachers.gov.bd/shared/contents/2019/April/12/photo/halkhata-1420-online-dhaka-guide.jpg"
+                        alt="লাল টালী(৮ নাম্বার)" />
+                    <div class="book-title">লাল টালী</div>
+                    <div class="book-author">৮ নাম্বার</div>
+                    <div class="book-price">
+                        <span style="font-weight: bold; color: green;">৳ 184</span>
+                    </div>
+                    <button class="add-button">Add to Products</button>
+                </div>
+
+
+                <!-- Book 46 -->
+                <div class="book-card" data-product-id="লাল টালী(১০ নাম্বার) " data-price="230">
+                    <img src="https://teachers.gov.bd/shared/contents/2019/April/12/photo/halkhata-1420-online-dhaka-guide.jpg"
+                        alt="লাল টালী(১০ নাম্বার)" />
+                    <div class="book-title">লাল টালী</div>
+                    <div class="book-author">১০ নাম্বার</div>
+                    <div class="book-price">
+                        <span style="font-weight: bold; color: green;">৳ 230</span>
+                    </div>
+                    <button class="add-button">Add to Products</button>
+                </div>
+
+
+                <!-- Book 46 -->
+                <div class="book-card" data-product-id="লাল টালী(১২ নাম্বার) " data-price="276">
+                    <img src="https://teachers.gov.bd/shared/contents/2019/April/12/photo/halkhata-1420-online-dhaka-guide.jpg"
+                        alt="লাল টালী(১২ নাম্বার)" />
+                    <div class="book-title">লাল টালী</div>
+                    <div class="book-author">১২ নাম্বার</div>
+                    <div class="book-price">
+                        <span style="font-weight: bold; color: green;">৳ 276</span>
+                    </div>
+                    <button class="add-button">Add to Products</button>
+                </div>
+
+
+                <!-- Book 46 -->
+                <div class="book-card" data-product-id="লাল টালী(১৬ নাম্বার) " data-price="368">
+                    <img src="https://teachers.gov.bd/shared/contents/2019/April/12/photo/halkhata-1420-online-dhaka-guide.jpg"
+                        alt="লাল টালী(১৬ নাম্বার)" />
+                    <div class="book-title">লাল টালী</div>
+                    <div class="book-author">১৬ নাম্বার</div>
+                    <div class="book-price">
+                        <span style="font-weight: bold; color: green;">৳ 368</span>
+                    </div>
+                    <button class="add-button">Add to Products</button>
+                </div>
+
+
+                <!-- Book 46 -->
+                <div class="book-card" data-product-id="লাল টালী(২০ নাম্বার) " data-price="460">
+                    <img src="https://teachers.gov.bd/shared/contents/2019/April/12/photo/halkhata-1420-online-dhaka-guide.jpg"
+                        alt="লাল টালী(২০ নাম্বার)" />
+                    <div class="book-title">লাল টালী</div>
+                    <div class="book-author">২০ নাম্বার</div>
+                    <div class="book-price">
+                        <span style="font-weight: bold; color: green;">৳ 460</span>
+                    </div>
+                    <button class="add-button">Add to Products</button>
+                </div>
+
+
+                <!-- Book 46 -->
+                <div class="book-card" data-product-id="A4 Bashundhara Paper (80 GSM) " data-price="400">
+                    <img src="https://www.bashundharapapermills.com/assets/upload/wallpaper_1595511496.png"
+                        alt="A4 Bashundhara Paper (80 GSM)" />
+                    <div class="book-title">A4 Bashundhara Paper</div>
+                    <div class="book-author">A4 80GSM Paper</div>
+                    <div class="book-price">
+                        <span style="font-weight: bold; color: green;">৳ 400</span>
+                    </div>
+                    <button class="add-button">Add to Products</button>
+                </div>
+
+
+                <!-- Book 46 -->
+                <div class="book-card" data-product-id="A4 Papertech Paper (80 GSM) " data-price="390">
+                    <img src="https://technopower.com.bd/public/uploads/all/eSQIUK7A4AUNOuMVEXatRFlvigPU2jUfWnVcw4Kk.jpg"
+                        alt="A4 Papertech Paper (80 GSM)" />
+                    <div class="book-title">A4 Papertech Paper</div>
+                    <div class="book-author">A4 80GSM Paper</div>
+                    <div class="book-price">
+                        <span style="font-weight: bold; color: green;">৳ 390</span>
+                    </div>
+                    <button class="add-button">Add to Products</button>
+                </div>
+
+
+                <div class="book-card" data-product-id="A4 Papertech Paper (100 GSM) " data-price="500">
+                    <img src="https://jdc.com.bd/wp-content/uploads/2024/12/Papertech_Gold_100_GSM_A4_Offset_Paper-PAPERTECH-6cc07-282611.jpg"
+                        alt="A4 Papertech Paper (100 GSM)" />
+                    <div class="book-title">A4 Papertech Paper</div>
+                    <div class="book-author">A4 100GSM Paper</div>
+                    <div class="book-price">
+                        <span style="font-weight: bold; color: green;">৳ 500</span>
+                    </div>
+                    <button class="add-button">Add to Products</button>
+                </div>
+
+
+                <div class="book-card" data-product-id="A4 Creative Classic Paper (70 GSM) " data-price="330">
+                    <img src="https://admin.krishibidbazaar.com/storage/app/product/ZcCUGfwS73dmFZNsvI9d6477.jpg"
+                        alt="A4 Creative Classic Paper (70 GSM)" />
+                    <div class="book-title">A4 Creative Classic Paper</div>
+                    <div class="book-author">A4 70GSM Paper</div>
+                    <div class="book-price">
+                        <span style="font-weight: bold; color: green;">৳ 330</span>
+                    </div>
+                    <button class="add-button">Add to Products</button>
+                </div>
+
+
+                <div class="book-card" data-product-id="A4 Creative Classic Paper (65 GSM) " data-price="310">
+                    <img src="https://assets.mamunbooks.com/public/frontend/thumbnail/6832aaef59eea.webp"
+                        alt="A4 Creative Classic Paper (65 GSM)" />
+                    <div class="book-title">A4 Creative Classic Paper</div>
+                    <div class="book-author">A4 65GSM Paper</div>
+                    <div class="book-price">
+                        <span style="font-weight: bold; color: green;">৳ 310</span>
+                    </div>
+                    <button class="add-button">Add to Products</button>
+                </div>
+
+
+                <div class="book-card" data-product-id="A4 Creative Classic Paper (80 GSM) " data-price="380">
+                    <img src="https://noggor.com/wp-content/uploads/2022/10/1661858823_Creative20Classic20A420Size20Offset20Paper2050020Sheets2080gsm.jpg"
+                        alt="A4 Creative Classic Paper (80 GSM)" />
+                    <div class="book-title">A4 Creative Classic Paper</div>
+                    <div class="book-author">A4 80GSM Paper</div>
+                    <div class="book-price">
+                        <span style="font-weight: bold; color: green;">৳ 380</span>
+                    </div>
+                    <button class="add-button">Add to Products</button>
+                </div>
+
+
+                <div class="book-card" data-product-id=" Creative Classic Legal 70 Paper " data-price="435">
+                    <img src="https://paikaree.com.bd/public/uploads/products/photos/creative-classic-legal-size-printing-paper-(70-gsm)---1-rim-paikaree.webp"
+                        alt="Creative Classic Legal 70 Paper" />
+                    <div class="book-title">Creative Classic Legal 70 Paper</div>
+                    <div class="book-author">Size 914</div>
+                    <div class="book-price">
+                        <span style="font-weight: bold; color: green;">৳ 435</span>
+                    </div>
+                    <button class="add-button">Add to Products</button>
+                </div>
         </div>
     </section>
 
