@@ -77,22 +77,30 @@
             text-align: center;
         }
 
-        
-            .book-card img {
-                width: 100%; /* পুরো জায়গা নেবে */
-                height: 300px; /* উচ্চতা নির্দিষ্ট */
-                object-fit: contain; /* ছবি সম্পূর্ণ দেখা যাবে */
-                border-radius: 8px; /* সামান্য গোলাকার কোণ */
-                margin: 0 auto 15px;
-                display: block;
-                box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* নরম শ্যাডো */
-                background: #f8f8f8; /* ছবির ব্যাকগ্রাউন্ড */
-                padding: 10px; /* ছবির চারপাশে স্পেস */
-                transition: transform 0.3s ease; /* হোভার এনিমেশন */
-            }
-            
-            .book-card:hover img {
-                transform: scale(1.03);
+
+        .book-card img {
+            width: 100%;
+            /* পুরো জায়গা নেবে */
+            height: 300px;
+            /* উচ্চতা নির্দিষ্ট */
+            object-fit: contain;
+            /* ছবি সম্পূর্ণ দেখা যাবে */
+            border-radius: 8px;
+            /* সামান্য গোলাকার কোণ */
+            margin: 0 auto 15px;
+            display: block;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* নরম শ্যাডো */
+            background: #f8f8f8;
+            /* ছবির ব্যাকগ্রাউন্ড */
+            padding: 10px;
+            /* ছবির চারপাশে স্পেস */
+            transition: transform 0.3s ease;
+            /* হোভার এনিমেশন */
+        }
+
+        .book-card:hover img {
+            transform: scale(1.03);
         }
 
         .book-title {
@@ -155,22 +163,20 @@
         <input type="text" id="searchInput" placeholder="Search books by title or author..." onkeyup="searchBooks()" />
 
         <div class="book-grid" id="bookList">
-        <!-- Book 1 -->
-        <div class="book-card" data-product-id="আমি পদ্মজা">
-            <img src="https://ds.rokomari.store/rokomari110/ProductNew20190903/260X372/Ami_Poddoja-Elma_Behrouz-cbb5a-446323.jpg"
-                alt="আমি পদ্মজা" />            <!-- অথবা local image use করতে চাইলে: -->
-            <!-- <img src="images/আমি পদ্মজা.jpg" alt="আমি পদ্মজা" /> -->
-        
-            <div class="book-title">আমি পদ্মজা (হার্ড কভার)</div>
-            <div class="book-author">by ইলমা বেহরোজ</div>
-            <div class="book-price">৳ 460</div>
-            <button class="add-button">Add to Products</button>
-        </div>
+            <!-- Book 1 -->
+            <div class="book-card" data-product-id="আমি পদ্মজা" data-price="460">
+                <img src="https://ds.rokomari.store/rokomari110/ProductNew20190903/260X372/Ami_Poddoja-Elma_Behrouz-cbb5a-446323.jpg"
+                    alt="আমি পদ্মজা" />
+                <div class="book-title">আমি পদ্মজা (হার্ড কভার)</div>
+                <div class="book-author">by ইলমা বেহরোজ</div>
+                <div class="book-price">৳ 460</div>
+                <button class="add-button">Add to Products</button>
+            </div>
 
             <!-- Book 2 -->
-            <div class="book-card" data-product-id="স্পোকেন ইংলিশে জিরো ঠু হিরো">
+            <div class="book-card" data-product-id="স্পোকেন ইংলিশে জিরো ঠু হিরো" data-price="515">
                 <img src="https://ds.rokomari.store/rokomari110/ProductNew20190903/260X372/Spoken_Englisha_Zero_To_Hero-Saifur_Rahman_Khan-4e358-474365.jpg"
-                    alt="আমি পদ্মজা" />
+                    alt="স্পোকেন ইংলিশে জিরো ঠু হিরো" />
                 <div class="book-title">স্পোকেন ইংলিশে জিরো ঠু হিরো (পেপারব্যাক)</div>
                 <div class="book-author">by সাইফুর রহমান খান</div>
                 <div class="book-price">৳ 515</div>
@@ -178,9 +184,9 @@
             </div>
 
             <!-- Book 3 -->
-            <div class="book-card" data-product-id="ঘরে বসে Spoken English">
+            <div class="book-card" data-product-id="ঘরে বসে Spoken English" data-price="298">
                 <img src="https://ds.rokomari.store/rokomari110/ProductNew20190903/260X372/d774abe23_206592.jpg"
-                    alt="আমি পদ্মজা" />
+                    alt="ঘরে বসে Spoken English" />
                 <div class="book-title">ঘরে বসে Spoken English(হার্ডকভার)</div>
                 <div class="book-author">by মুনজেরিন শহীদ</div>
                 <div class="book-price">৳ 298</div>
@@ -188,24 +194,25 @@
             </div>
 
             <!-- Book 4 -->
-            <div class="book-card" data-product-id="পাসপোর্ট টু গ্রামার">
+            <div class="book-card" data-product-id="পাসপোর্ট টু গ্রামার" data-price="315">
                 <img src="https://ds.rokomari.store/rokomari110/ProductNew20190903/260X372/Passport_to_Grammar_JEVABE_SIKHE_CI_BANG-Saifur_Rahman_Khan-b92bb-117676.jpg"
-                    alt="আমি পদ্মজা" />
+                    alt="পাসপোর্ট টু গ্রামার" />
                 <div class="book-title">পাসপোর্ট টু গ্রামার(পেপারব্যাক)</div>
-                <div class="book-author">by সাইফুর রহমান খান , মোঃ মুজিবুর রহমান , মোহাম্মাদ রাজ্জব হোসেন , মোঃ হাসীব কবীর</div>
+                <div class="book-author">by সাইফুর রহমান খান , মোঃ মুজিবুর রহমান , মোহাম্মাদ রাজ্জব হোসেন , মোঃ হাসীব
+                    কবীর</div>
                 <div class="book-price">৳ 315</div>
                 <button class="add-button">Add to Products</button>
             </div>
 
-        <!-- Book 5 -->
-        <div class="book-card" data-product-id="এক নজরে কুরআন">
-            <img src="https://ds.rokomari.store/rokomari110/ProductNew20190903/260X372/Eak_Nozore_quran-Dr_Mizanur_Rahman_Azhari-2d298-449989.png"
-                alt="আমি পদ্মজা" />
-            <div class="book-title">এক নজরে কুরআন(হার্ডকভার)</div>
-            <div class="book-author">by ড. মিজানুর রহমান আজহারি</div>
-            <div class="book-price">৳ 1599</div>
-            <button class="add-button">Add to Products</button>
-        </div>
+            <!-- Book 5 -->
+            <div class="book-card" data-product-id="এক নজরে কুরআন" data-price="1599">
+                <img src="https://ds.rokomari.store/rokomari110/ProductNew20190903/260X372/Eak_Nozore_quran-Dr_Mizanur_Rahman_Azhari-2d298-449989.png"
+                    alt="এক নজরে কুরআন" />
+                <div class="book-title">এক নজরে কুরআন(হার্ডকভার)</div>
+                <div class="book-author">by ড. মিজানুর রহমান আজহারি</div>
+                <div class="book-price">৳ 1599</div>
+                <button class="add-button">Add to Products</button>
+            </div>
         </div>
     </section>
 
@@ -222,16 +229,18 @@
 
             addButtons.forEach(button => {
                 button.addEventListener("click", function () {
-                    // book-card div থেকে product id নেয়া হচ্ছে
+                    // book-card div থেকে product id এবং price নেয়া হচ্ছে
                     const productCard = button.closest(".book-card");
                     const productId = productCard.getAttribute("data-product-id");
+                    const productPrice = productCard.getAttribute("data-price");
 
                     // লোকালস্টোরেজ থেকে প্রোডাক্টের সংখ্যা নেয়া হচ্ছে
                     let count = parseInt(localStorage.getItem("product_" + productId)) || 0;
                     count++;
                     localStorage.setItem("product_" + productId, count);
+                    localStorage.setItem("price_" + productId, productPrice);
 
-
+                    alert(`${productId} প্রোডাক্টটি অর্ডার লিস্টে যোগ হয়েছে!`);
                 });
             });
         });
