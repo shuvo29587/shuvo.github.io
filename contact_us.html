@@ -455,23 +455,29 @@
                     alert("আপনি কোন প্রোডাক্ট অর্ডার দেননি।");
                     return;
                 }
+                // Format order details with proper numbering
+                const formattedOrderDetails = orderDetails.split('\n')
+                    .filter(item => item.trim() !== '') // Remove empty lines
+                    .map((item, index) => `${index + 1}) ${item.trim()}`) // Add numbering
+                    .join('\n');
+
                 const memoContent = `
-                **************** অর্ডার মেমো ****************
-                তারিখ: ${new Date().toLocaleDateString()} 
-                সময়: ${new Date().toLocaleTimeString()}
-                
-                ************* ক্রেতার বিবরণ *************
-                নাম: ${name.padEnd(30)}
-                ফোন: ${phone.padEnd(29)}
-                ঠিকানা: ${address.split('\n')[0].padEnd(26)}
-                ${address.split('\n').length > 1 ? `      ${address.split('\n')[1].padEnd(29)}` : ''}
-                
-                **************** অর্ডার বিবরণ ****************
-                ${orderDetails.split('\n').map(item => ` ${item.padEnd(40)}`).join('\n')}
-                
-                **************** মোট টাকা ****************
-                মোট টাকা: ${totalPrice.toString().padEnd(30)} টাকা
-                `;
+**************** অর্ডার মেমো ****************
+তারিখ: ${new Date().toLocaleDateString('bn-BD')} 
+সময়: ${new Date().toLocaleTimeString('bn-BD')}
+
+************* ক্রেতার বিবরণ *************
+নাম: ${name.padEnd(30)}
+ফোন: ${phone.padEnd(29)}
+ঠিকানা: ${address.split('\n')[0].padEnd(26)}
+${address.split('\n').length > 1 ? `      ${address.split('\n')[1].padEnd(29)}` : ''}
+
+**************** অর্ডার বিবরণ ****************
+${formattedOrderDetails}
+
+**************** মোট টাকা ****************
+মোট টাকা: ${totalPrice.toString().padEnd(30)} টাকা
+`;
 
                 // ডাউনলোড বা শেয়ার করার অপশন
                 function generateMemo() {
