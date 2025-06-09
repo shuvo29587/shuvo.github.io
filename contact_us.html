@@ -82,6 +82,7 @@
 
         input[type="text"],
         input[type="email"],
+        input[type="number"],
         textarea {
             width: 100%;
             padding: 10px 12px;
@@ -89,17 +90,6 @@
             border: 1px solid #ccc;
             font-size: 15px;
             resize: vertical;
-        }
-
-        .email-watermark {
-            position: absolute;
-            right: 12px;
-            top: 38px;
-            color: #aaa;
-            font-size: 14px;
-            pointer-events: none;
-            user-select: none;
-            opacity: 0.7;
         }
 
         .btn {
@@ -117,6 +107,15 @@
 
         .btn:hover {
             background-color: #1e8449;
+        }
+
+        .btn-download {
+            background-color: #3498db;
+            margin-top: 10px;
+        }
+
+        .btn-download:hover {
+            background-color: #2980b9;
         }
 
         .form-message {
@@ -190,6 +189,46 @@
         .remove-btn:hover {
             background: #c0392b;
         }
+
+        .price-input {
+            width: 60px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+
+        .update-price-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 3px 8px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+
+        .update-price-btn:hover {
+            background: #2980b9;
+        }
+
+        .action-buttons {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* নতুন যোগ করা ঠিকানা ফিল্ড স্টাইল */
+        textarea {
+            min-height: 80px;
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 15px;
+            resize: vertical;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
     </style>
 </head>
 
@@ -214,18 +253,19 @@
             <label for="name">নাম :</label>
             <input type="text" id="name" required />
 
-            <div class="input-group">
-                <label for="email">ইমেইল :</label>
-                <input type="email" id="email" required />
-                <div class="email-watermark">mdnaimurrahmanshuvo628@gmail.com</div>
-            </div>
-
             <label for="phone">ফোন নাম্বার:</label>
             <input type="text" id="phone" required />
+
+            <div class="input-group">
+                <label for="address">ঠিকানা :</label>
+                <textarea id="address" required
+                    placeholder="বিস্তারিত ঠিকানা লিখুন (গ্রাম/রোড নং, থানা, জেলা)"></textarea>
+            </div>
 
             <div id="orderSummary"></div>
 
             <button type="submit" class="btn">আপনার অর্ডারটি সম্পূর্ণ করুন</button>
+            <button type="button" id="downloadBtn" class="btn btn-download">অর্ডার মেমো ডাউনলোড করুন</button>
         </form>
 
         <div id="formMessage" class="form-message"></div>
@@ -235,24 +275,13 @@
         document.addEventListener("DOMContentLoaded", function () {
             const contactForm = document.getElementById("contactForm");
             const formMessage = document.getElementById("formMessage");
-            const emailInput = document.getElementById("email");
-            const emailWatermark = document.querySelector(".email-watermark");
             const orderSummaryDiv = document.getElementById("orderSummary");
+            const downloadBtn = document.getElementById("downloadBtn");
 
-            // Show/hide watermark based on input
-            emailInput.addEventListener("input", function () {
-                emailWatermark.style.display = this.value ? "none" : "block";
-            });
-
-            // লোকালস্টোরেজ থেকে নাম, ইমেইল রিস্টোর
+            // লোকালস্টোরেজ থেকে নাম রিস্টোর
             const savedName = localStorage.getItem("userName");
-            const savedEmail = localStorage.getItem("userEmail");
 
             if (savedName) document.getElementById("name").value = savedName;
-            if (savedEmail) {
-                document.getElementById("email").value = savedEmail;
-                emailWatermark.style.display = "none";
-            }
 
             // লোকালস্টোরেজ থেকে অর্ডার তথ্য সংগ্রহ করে টেবিল তৈরি
             function generateOrderTable() {
@@ -299,12 +328,17 @@
                             <tr>
                                 <td>${index + 1}</td>
                                 <td>${order.name}</td>
-                                <td>${order.quantity}</td>
-                                <td>${order.price}</td>
-                                <td>${order.subtotal}</td>
                                 <td>
                                     <button class="quantity-btn minus-btn" data-id="${order.id}">-</button>
+                                    ${order.quantity}
                                     <button class="quantity-btn plus-btn" data-id="${order.id}">+</button>
+                                </td>
+                                <td>
+                                    <input type="number" class="price-input" value="${order.price}" data-id="${order.id}">
+                                    <button class="update-price-btn" data-id="${order.id}">Update</button>
+                                </td>
+                                <td>${order.subtotal}</td>
+                                <td>
                                     <button class="remove-btn" data-id="${order.id}">Remove</button>
                                 </td>
                             </tr>
@@ -369,7 +403,100 @@
                         generateOrderTable();
                     });
                 });
+
+                // প্রাইস আপডেট বাটন
+                document.querySelectorAll(".update-price-btn").forEach(btn => {
+                    btn.addEventListener("click", function () {
+                        const productId = this.getAttribute("data-id");
+                        const priceInput = document.querySelector(`.price-input[data-id="${productId}"]`);
+                        const newPrice = parseInt(priceInput.value);
+
+                        if (!isNaN(newPrice) && newPrice > 0) {
+                            localStorage.setItem("price_" + productId, newPrice);
+                            generateOrderTable();
+                        } else {
+                            alert("দয়া করে একটি বৈধ দাম ইনপুট করুন");
+                        }
+                    });
+                });
             }
+
+            // ডাউনলোড বাটন ক্লিক হ্যান্ডলার
+            downloadBtn.addEventListener("click", function () {
+                const name = document.getElementById("name").value.trim();
+                const phone = document.getElementById("phone").value.trim();
+                const address = document.getElementById("address").value.trim();
+
+                if (!name || !phone || !address) {
+                    alert("অর্ডার ডাউনলোড করতে নাম, ফোন নাম্বার এবং ঠিকানা পূরণ করুন");
+                    return;
+                }
+
+                // অর্ডার ডেটা সংগ্রহ
+                let orderDetails = "";
+                let totalPrice = 0;
+                let hasOrders = false;
+
+                for (let i = 0; i < localStorage.length; i++) {
+                    const key = localStorage.key(i);
+                    if (key.startsWith("product_")) {
+                        const productId = key.replace("product_", "");
+                        const count = parseInt(localStorage.getItem(key));
+                        const price = parseInt(localStorage.getItem("price_" + productId)) || 0;
+                        const subtotal = count * price;
+                        totalPrice += subtotal;
+
+                        orderDetails += `${productId.replace(/_/g, " ")} - ${count} টি (${subtotal} টাকা)\n`;
+                        hasOrders = true;
+                    }
+                }
+
+                if (!hasOrders) {
+                    alert("আপনি কোন প্রোডাক্ট অর্ডার দেননি।");
+                    return;
+                }
+                const memoContent = `
+
+**************** অর্ডার মেমো ****************                   
+
+ তারিখ: ${new Date().toLocaleDateString()} 
+ সময়: ${new Date().toLocaleTimeString()} 
+
+************* ক্রেতার বিবরণ *************       
+                                         
+ নাম: ${name.padEnd(30)} 
+ ফোন: ${phone.padEnd(29)} 
+ ঠিকানা: ${address.split('\n')[0].padEnd(26)} 
+${address.split('\n').length > 1 ? `      ${address.split('\n')[1].padEnd(29)} ` : ''}
+                                        
+**************** অর্ডার বিবরণ ****************     
+                     
+${orderDetails.split('\n').map(item => ` ${item.padEnd(40)} `).join('\n')}
+
+                    **************** মোট টাকা  ****************
+
+মোট টাকা: ${totalPrice.toString().padEnd(30)} টাকা 
+                                        
+
+`;
+
+                // Create a Blob with the memo content
+                const blob = new Blob([memoContent], { type: "text/plain" });
+                const url = URL.createObjectURL(blob);
+
+                // Create a download link
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = `${name}_অর্ডার_মেমো_${new Date().toISOString().slice(0, 10)}.txt`;
+                document.body.appendChild(a);
+                a.click();
+
+                // Clean up
+                setTimeout(() => {
+                    document.body.removeChild(a);
+                    window.URL.revokeObjectURL(url);
+                }, 100);
+            });
 
             // পেজ লোড হওয়ার সময় টেবিল জেনারেট করুন
             generateOrderTable();
@@ -378,8 +505,8 @@
                 e.preventDefault();
 
                 const name = document.getElementById("name").value.trim();
-                const email = document.getElementById("email").value.trim();
                 const phone = document.getElementById("phone").value.trim();
+                const address = document.getElementById("address").value.trim();
 
                 // অর্ডার ডেটা সংগ্রহ
                 let orderDetails = "";
@@ -406,42 +533,28 @@
                     return;
                 }
 
-                orderDetails += `\nমোট টাকা: ${totalPrice} টাকা`;
+                orderDetails += `\nমোট টাকা: ${totalPrice} টাকা\nঠিকানা: ${address}`;
 
                 localStorage.setItem("userName", name);
-                localStorage.setItem("userEmail", email);
 
                 const message = `
                     নাম: ${name}
-                    ইমেইল: ${email}
                     ফোন: ${phone}
+                    ঠিকানা: ${address}
                     
                     অর্ডার বিবরণ:
                     ${orderDetails}
                 `;
 
-                // Send email to customer
-                emailjs.send("service_sy9tfom", "template_yof6ggh", {
-                    from_name: name,
-                    from_email: email,
-                    message: message
-                }).then(function () {
-                    console.log("Customer email sent");
-                }, function (error) {
-                    console.error("Customer email error:", error);
-                });
-
                 // Send email to admin (you)
                 emailjs.send("service_sy9tfom", "template_yof6ggh", {
                     from_name: name,
-                    from_email: email,
                     message: message,
                     to_email: "mdnaimurrahmanshuvo628@gmail.com"  // Your email address
                 }).then(function () {
                     formMessage.textContent = `✅ ধন্যবাদ ${name}! আপনার অর্ডারটি পেয়েছি। শীঘ্রই আপনার সাথে যোগাযোগ করা হবে।`;
                     formMessage.className = "form-message success";
                     contactForm.reset();
-                    emailWatermark.style.display = "block";
 
                     // লোকালস্টোরেজ ক্লিয়ার (শুধু অর্ডার আইটেম)
                     const keysToRemove = [];
