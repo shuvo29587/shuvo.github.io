@@ -456,29 +456,52 @@
                     return;
                 }
                 const memoContent = `
+                **************** অর্ডার মেমো ****************
+                তারিখ: ${new Date().toLocaleDateString()} 
+                সময়: ${new Date().toLocaleTimeString()}
+                
+                ************* ক্রেতার বিবরণ *************
+                নাম: ${name.padEnd(30)}
+                ফোন: ${phone.padEnd(29)}
+                ঠিকানা: ${address.split('\n')[0].padEnd(26)}
+                ${address.split('\n').length > 1 ? `      ${address.split('\n')[1].padEnd(29)}` : ''}
+                
+                **************** অর্ডার বিবরণ ****************
+                ${orderDetails.split('\n').map(item => ` ${item.padEnd(40)}`).join('\n')}
+                
+                **************** মোট টাকা ****************
+                মোট টাকা: ${totalPrice.toString().padEnd(30)} টাকা
+                `;
 
-**************** অর্ডার মেমো ****************                   
+                // ডাউনলোড বা শেয়ার করার অপশন
+                function generateMemo() {
+                    // মোবাইল ডিভাইসে শেয়ার অপশন
+                    if (navigator.share) {
+                        navigator.share({
+                            title: 'অর্ডার মেমো',
+                            text: memoContent,
+                        })
+                            .catch(error => console.log('শেয়ারিং এ সমস্যা:', error));
+                    }
+                    // ডেস্কটপের জন্য ডাউনলোড অপশন
+                    else {
+                        const blob = new Blob([memoContent], { type: 'text/plain' });
+                        const url = URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = `order_memo_${new Date().toISOString().slice(0, 10)}.txt`;
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(url);
+                    }
+                }
 
- তারিখ: ${new Date().toLocaleDateString()} 
- সময়: ${new Date().toLocaleTimeString()} 
-
-************* ক্রেতার বিবরণ *************       
-                                         
- নাম: ${name.padEnd(30)} 
- ফোন: ${phone.padEnd(29)} 
- ঠিকানা: ${address.split('\n')[0].padEnd(26)} 
-${address.split('\n').length > 1 ? `      ${address.split('\n')[1].padEnd(29)} ` : ''}
-                                        
-**************** অর্ডার বিবরণ ****************     
-                     
-${orderDetails.split('\n').map(item => ` ${item.padEnd(40)} `).join('\n')}
-
-                    **************** মোট টাকা  ****************
-
-মোট টাকা: ${totalPrice.toString().padEnd(30)} টাকা 
-                                        
-
-`;
+                // ব্যবহারকারীকে অপশন দিন
+                const shouldDownload = confirm('আপনি কি অর্ডার মেমো ডাউনলোড বা শেয়ার করতে চান?');
+                if (shouldDownload) {
+                    generateMemo();
+                               }
 
                 // Create a Blob with the memo content
                 const blob = new Blob([memoContent], { type: "text/plain" });
