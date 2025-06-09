@@ -462,6 +462,11 @@
                     .join('\n');
 
                 const memoContent = `
+                 
+        ''আমাদের পণ্য''
+নাম: নাইমুর রহমান শুভ
+ফোন: 01968097505, 01339522248
+                    
 **************** অর্ডার মেমো ****************
 তারিখ: ${new Date().toLocaleDateString('bn-BD')} 
 সময়: ${new Date().toLocaleTimeString('bn-BD')}
@@ -471,21 +476,20 @@
 ফোন: ${phone.padEnd(29)}
 ঠিকানা: ${address.split('\n')[0].padEnd(26)}
 ${address.split('\n').length > 1 ? `      ${address.split('\n')[1].padEnd(29)}` : ''}
-
+                    
 **************** অর্ডার বিবরণ ****************
 ${formattedOrderDetails}
 *********************************************
 মোট টাকা: ${totalPrice.toString().padEnd(30)} 
- 
-`;
+                    `;
 
                 // ডাউনলোড বা শেয়ার করার অপশন
                 function generateMemo() {
                     // মোবাইল ডিভাইসে শেয়ার অপশন
                     if (navigator.share) {
                         navigator.share({
-                            title: 'অর্ডার মেমো',
-                            text: memoContent,
+                            title: 'আমাদের পণ্য - নাইমুর রহমান শুভ',
+                            text: memoContent + "\nযোগাযোগ: 01968097505, 01339522248"
                         })
                             .catch(error => console.log('শেয়ারিং এ সমস্যা:', error));
                     }
@@ -501,7 +505,7 @@ ${formattedOrderDetails}
                         document.body.removeChild(a);
                         URL.revokeObjectURL(url);
                     }
-                }
+                                       }
 
                 // ব্যবহারকারীকে অপশন দিন
                 const shouldDownload = confirm('আপনি কি অর্ডার মেমো ডাউনলোড বা শেয়ার করতে চান?');
